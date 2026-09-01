@@ -1,0 +1,43 @@
+.marquee-wrap {
+  overflow: hidden;
+  border-top: 2.5px solid #4854b4;
+  border-bottom: 2.5px solid #4854b4;
+  padding: 14px 0;
+  margin: 36px 0 50px;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 18s linear infinite;
+  will-change: transform;
+}
+
+.marquee-item {
+  font-size: 15px;
+  font-weight: 700;
+  color: #333f94;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  
+  /* Pindahkan spasi antar-item ke sini */
+  padding-right: 40px; 
+}
+
+.marquee-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4854b4;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}

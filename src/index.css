@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@600&family=Baloo+2:wght@500;600;700&display=swap");
+@font-face {
+  font-family: 'BauhausLaceRndDisplay-Regular';
+  src: 
+       url('./assets/fonts/BauhausLaceRndDisplay-Regular.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  --mint: #dcebd7;
+  --mint-2: #eaf4e6;
+  --ink: #4854b4;
+  --ink-dark: #333f94;
+  --ink-soft: #6b78d4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--mint);
+  color: var(--ink-dark);
+  font-family: "League Spartan", sans-serif;
+  font-weight: 600;
+  font-size: 60px;
+  overflow-x: hidden;
+}
+
+.display {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 600;
+}
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+  position: relative;
+}
+
+/* ---------- keyframes ---------- */
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fanIn {
+  from { opacity: 0; transform: translateY(28px) rotate(var(--rot, 0deg)) scale(.92); }
+  to { opacity: 1; transform: translateY(0) rotate(var(--rot, 0deg)) scale(1); }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+@keyframes shimmerSweep {
+  0% { transform: translateX(-130%) translateY(-130%) rotate(25deg); }
+  100% { transform: translateX(130%) translateY(130%) rotate(25deg); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.reveal { animation: riseIn 0.7s ease both; }
+.doodle-face { animation: floatSlow 5s ease-in-out infinite; }
+.doodle-squiggle { animation: wiggle 3.5s ease-in-out infinite; transform-origin: center; }
+
+/* ---------- shared UI ---------- */
+.chip {
+  border: 2px solid var(--ink);
+  background: transparent;
+  color: var(--ink-dark);
+  padding: 7px 17px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 15.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.chip:hover { background: rgba(72, 84, 180, 0.1); }
+.chip.active { background: var(--ink); border-color: var(--ink); color: var(--mint-2); }
+
+.btn-shopee {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  background: var(--ink);
+  color: var(--mint-2);
+  font-weight: 700;
+  font-size: 15.5px;
+  padding: 11px 14px;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+.btn-shopee:hover { background: var(--ink-dark); }
+.btn-shopee:active { transform: scale(0.97); }
+
+@media (prefers-reduced-motion: reduce) {
+  .doodle-face, .doodle-squiggle, .reveal { animation: none !important; }
+}
